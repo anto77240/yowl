@@ -3,7 +3,7 @@
 <template>
 	<nav>
 		<div class="header">
-			<a href="/home" class="brand-logo"> <img src="../assets/yowl.png" /></a>
+			<router-link to="/home"><img class="brand-logo" src="../assets/yowl.png" /></router-link>
 			<router-link to="/admin"><button v-if="this.admin">Admin</button></router-link>
 
 			<div class="hello">
