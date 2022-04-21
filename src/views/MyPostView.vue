@@ -88,7 +88,7 @@ export default {
 			// console.log("post.body", this.post.body);
 			// console.log("post.title", this.post.title);
 			// console.log("this.id ", this.id);
-			let put = await fetch(`http://146.59.157.162:3000/api/v1/post/${this.id}`, {
+			await fetch(`http://146.59.157.162:3000/api/v1/post/${this.id}`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
