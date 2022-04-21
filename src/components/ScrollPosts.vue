@@ -130,18 +130,18 @@ export default {
 			this.posts = await array.json();
 		},
 		increaseLike(id, reputation) {
-			console.log("id post", id);
-			console.log("reputation", reputation);
+			//console.log("id post", id);
+			//console.log("reputation", reputation);
 			reputation++;
-			console.log("reputation +1", reputation);
+			//console.log("reputation +1", reputation);
 
 			instance
 				.patch(`/post/${id}`, { reputation: reputation })
 				.then(function (response) {
-					console.log(response);
+					response; //console.log(response);
 				})
 				.catch(function (error) {
-					console.log(error);
+					error; //console.log(error);
 				});
 			this.loadMore();
 		},
@@ -161,11 +161,11 @@ export default {
 				},
 			});
 			this.post = await array.json();
-			console.log(this.post);
+			//console.log(this.post);
 			//}
 		},
 		async getComments(id) {
-			console.log("emmit", id);
+			//console.log("emmit", id);
 			let array = await fetch(`http://146.59.157.162:3000/api/v1/comments/${id}`, {
 				method: "GET",
 				headers: {
@@ -173,7 +173,7 @@ export default {
 				},
 			});
 			this.comments = await array.json();
-			console.log("comments", this.comments);
+			//console.log("comments", this.comments);
 		},
 		async getPostTrending() {
 			let array = await fetch("http://146.59.157.162:3000/api/v1/posttrending", {
@@ -183,7 +183,7 @@ export default {
 				},
 			});
 			this.trending = await array.json();
-			console.log("trending post", this.trending);
+			//console.log("trending post", this.trending);
 		},
 		closeModal() {
 			this.isModalVisible = false;
@@ -197,7 +197,7 @@ export default {
 				},
 			});
 			this.categories = await array.json();
-			console.log("cat", this.categories);
+			//console.log("cat", this.categories);
 		},
 
 		async searchPost(search) {
@@ -208,7 +208,7 @@ export default {
 				},
 			});
 			this.posts = await array.json();
-			console.log(this.posts);
+			//console.log(this.posts);
 		},
 		async sortByReputation() {
 			this.filter = true;
@@ -221,12 +221,12 @@ export default {
 				},
 			});
 			this.posts = await array.json();
-			console.log(this.posts);
+			//console.log(this.posts);
 		},
 
 		async sortByPostedOn() {
 			this.filter = true;
-			console.log(this.posts);
+			//console.log(this.posts);
 			let array = await fetch("http://146.59.157.162:3000/api/v1/postpostedon", {
 				method: "GET",
 				headers: {
@@ -234,14 +234,14 @@ export default {
 				},
 			});
 			this.posts = await array.json();
-			console.log(this.posts);
+			//console.log(this.posts);
 		},
 
 		async sortByCategory(cat) {
 			this.filter = true;
-			console.log(cat);
+			//console.log(cat);
 
-			console.log(this.posts);
+			//console.log(this.posts);
 			let array = await fetch(`http://146.59.157.162:3000/api/v1/postcategory/${cat}`, {
 				method: "GET",
 				headers: {
@@ -249,7 +249,7 @@ export default {
 				},
 			});
 			this.posts = await array.json();
-			console.log(this.posts);
+			//console.log(this.posts);
 		},
 		cancel() {
 			location.reload();
@@ -257,17 +257,17 @@ export default {
 
 		getNextPost() {
 			window.onscroll = () => {
-				console.log("Adding 1 more data results");
+				//console.log("Adding 1 more data results");
 				let bottomOfWindow =
 					document.documentElement.scrollTop + window.innerHeight >
 					document.documentElement.offsetHeight - 1;
 				if (bottomOfWindow) {
-					console.log(bottomOfWindow);
+					//console.log(bottomOfWindow);
 					this.busy = true;
 					axios.get("http://146.59.157.162:3000/api/v1/post").then((response) => {
 						const append = response.data.slice(this.posts.length, this.posts.length + this.limit);
 						this.posts = this.posts.concat(append);
-						console.log("this.posts", this.posts);
+						//console.log("this.posts", this.posts);
 					});
 				}
 			};
@@ -302,9 +302,9 @@ h2 {
 .post {
 	display: flex;
 	background: #eee;
-	width : 60%;
+	width: 60%;
 	border-radius: 1em;
-	padding-left : 5%;
+	padding-left: 5%;
 	padding-right: 5%;
 	margin: 1em auto;
 	box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);

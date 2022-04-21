@@ -17,7 +17,7 @@
 								<option
 									v-for="(cat, index) in this.categories"
 									:key="index"
-									v-bind:value="cat.category_name"	
+									v-bind:value="cat.category_name"
 								>
 									{{ cat.category_name }}
 								</option>
@@ -60,7 +60,7 @@ export default {
 		...mapState(["user"]),
 	},
 	mounted() {
-		console.log(this.$store.state.user);
+		//console.log(this.$store.state.user);
 		if (this.$store.state.user.userId == -1) {
 			this.$router.push("/");
 		}
@@ -69,11 +69,11 @@ export default {
 	methods: {
 		addPost() {
 			//const self = this;
-			console.log("username:", this.$store.state.user.username);
-			console.log("title", this.title);
-			console.log("content", this.content);
-			console.log("category", this.category);
-			console.log("image", this.image);
+			// console.log("username:", this.$store.state.user.username);
+			// console.log("title", this.title);
+			// console.log("content", this.content);
+			// console.log("category", this.category);
+			// console.log("image", this.image);
 
 			this.$store
 				.dispatch("addPost", {
@@ -85,13 +85,15 @@ export default {
 				})
 				.then(
 					function (response) {
-						console.log("response", response);
+						response;
+						//console.log("response", response);
 					},
 					function (error) {
-						console.log(error);
+						error;
+						//console.log(error);
 					}
 				);
-			console.log("user login", this.$store.state.user.id);
+			//console.log("user login", this.$store.state.user.id);
 			this.$router.push("/main");
 		},
 		async getCategories() {

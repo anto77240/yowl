@@ -11,8 +11,9 @@
 			<strong>Content : </strong><input v-model="this.post.body" type="textarea" />
 		</p>
 
-		<p class="data"><strong>Category : </strong>
-		<span>{{this.post.category}}</span></p>
+		<p class="data">
+			<strong>Category : </strong> <span>{{ this.post.category }}</span>
+		</p>
 		<div class="select is-rounded">
 			<select v-model="category" required>
 				<option
@@ -58,7 +59,7 @@ export default {
 	},
 	async mounted() {
 		this.id = localStorage.getItem("Post");
-		console.log("Post ID", this.id);
+		//console.log("Post ID", this.id);
 		let array = await fetch(`http://146.59.157.162:3000/api/v1/postbyid/${this.id}`, {
 			method: "GET",
 			headers: {
@@ -82,11 +83,11 @@ export default {
 			}
 		},
 		async edit(body, title, image) {
-			console.log("this.category", this.category);
-			console.log("body", body);
-			console.log("post.body", this.post.body);
-			console.log("post.title", this.post.title);
-			console.log("this.id ", this.id);
+			// console.log("this.category", this.category);
+			// console.log("body", body);
+			// console.log("post.body", this.post.body);
+			// console.log("post.title", this.post.title);
+			// console.log("this.id ", this.id);
 			let put = await fetch(`http://146.59.157.162:3000/api/v1/post/${this.id}`, {
 				method: "PUT",
 				headers: {
@@ -101,7 +102,7 @@ export default {
 			});
 			/* localStorage.clear(); */
 			/* location.reload(); */
-			console.log("put", put);
+			//console.log("put", put);
 			alert("Your changes have been taken into account.");
 		},
 		async getCategories() {
@@ -122,7 +123,6 @@ export default {
 </script>
 
 <style scoped>
-
 .wrapper {
 	width: 60%;
 	margin: auto;

@@ -51,9 +51,9 @@ export default {
 	methods: {
 		login() {
 			const self = this;
-			console.log("username:", this.username);
-			console.log("password", this.password);
-			console.log("tab", this.users);
+			// console.log("username:", this.username);
+			// console.log("password", this.password);
+			// console.log("tab", this.users);
 
 			this.$store
 				.dispatch("login", {
@@ -74,10 +74,10 @@ export default {
 						}
 					},
 					function (error) {
-						console.log(error);
+						error; //console.log(error);
 					}
 				);
-			console.log("user test", this.$store.state.user);
+			//console.log("user test", this.$store.state.user);
 			//console.log("user login", this.$store.state.user.id);
 		},
 	},

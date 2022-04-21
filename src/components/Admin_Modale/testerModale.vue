@@ -66,7 +66,7 @@ export default {
 
 	async mounted() {
 		this.id = localStorage.getItem("userid");
-		console.log("id localstorage", this.id);
+		//console.log("id localstorage", this.id);
 		let array = await fetch(`http://146.59.157.162:3000/api/v1/users/${this.id}`, {
 			method: "GET",
 			headers: {
@@ -76,7 +76,7 @@ export default {
 		this.users = await array.json();
 		this.users = this.users[0];
 
-		console.log(this.users);
+		//console.log(this.users);
 	},
 
 	methods: {
@@ -88,9 +88,9 @@ export default {
 		},
 
 		async edit(username, email, admin, banned) {
-			console.log(admin);
+			//console.log(admin);
 			// console.log("wow", this.email);
-			let put = await fetch(`http://146.59.157.162:3000/api/v1/users/${this.id}`, {
+			await fetch(`http://146.59.157.162:3000/api/v1/users/${this.id}`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
@@ -106,8 +106,8 @@ export default {
 			});
 			// this.users();
 			location.reload();
-			console.log(put);
-			console.log("blabla", this.users.admin);
+			// console.log(put);
+			// console.log("blabla", this.users.admin);
 		},
 	},
 };

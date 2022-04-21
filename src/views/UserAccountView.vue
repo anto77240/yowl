@@ -79,7 +79,7 @@ export default {
 		this.username = this.$store.state.user.username;
 		this.email = this.$store.state.user.email;
 		this.avatar = this.$store.state.user.avatar;
-		console.log(this.$store.state.user);
+		//console.log(this.$store.state.user);
 		if (this.$store.state.user.userId == -1 || this.$store.state.user.banned == 0) {
 			this.$router.push("/");
 		}
@@ -109,10 +109,10 @@ export default {
 				.then(
 					function (response) {
 						//self.login();
-						console.log(response);
+						response; //console.log(response);
 					},
 					function (error) {
-						console.log(error);
+						error; //console.log(error);
 					}
 				);
 			this.isModifyVisible = false;
@@ -127,10 +127,12 @@ export default {
 					})
 					.then(
 						function (response) {
-							console.log(response);
+							response;
+							//console.log(response);
 						},
 						function (error) {
-							console.log(error);
+							error;
+							//console.log(error);
 						}
 					);
 			}
@@ -140,7 +142,7 @@ export default {
 		},
 		goToMyPosts(id) {
 			this.$router.push(`/myPosts/${id}`);
-			console.log("id = ", id);
+			//console.log("id = ", id);
 		},
 	},
 };

@@ -114,7 +114,7 @@ export default {
 
 		showModal(id) {
 			this.isVisible = true;
-			console.log(id);
+			//console.log(id);
 			localStorage.setItem("userid", id);
 			// localStorage.clear(id);
 			// if(this.users.admin === 0) {
@@ -125,7 +125,7 @@ export default {
 
 		closeModal() {
 			this.isVisible = false;
-			console.log("1");
+			//console.log("1");
 			location.reload();
 			this.fetchUsers();
 		},
@@ -135,7 +135,6 @@ export default {
 
 <style scoped>
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
-
 
 .maindiv {
 	background-color: #ffc812;

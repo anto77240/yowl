@@ -89,7 +89,7 @@ export default {
 	watch: {
 		comments(newValue, oldValue) {
 			if (newValue != oldValue) {
-				console.log("Add comments");
+				//console.log("Add comments");
 				this.$emit("addComment");
 			}
 		},
@@ -107,15 +107,15 @@ export default {
 		getInfos() {
 			this.description = this.content[0];
 			this.comments = this.comment;
-			console.log("comment modal", this.comments);
-			console.log("comment store get infos", this.$store.state.commentInfos);
+			//console.log("comment modal", this.comments);
+			//console.log("comment store get infos", this.$store.state.commentInfos);
 		},
 		close() {
 			this.$emit("close");
 			localStorage.removeItem("postid");
 		},
 		addComments(com) {
-			console.log(com);
+			//console.log(com);
 
 			this.$store
 				.dispatch("addComments", {
@@ -126,20 +126,21 @@ export default {
 				.then(
 					function (response) {
 						//self.login();
-						console.log(response);
+						//console.log(response);
+						response;
 					},
 					function (error) {
-						console.log(error);
+						error; //console.log(error);
 					}
 				);
-    
+
 			this.hide();
 			this.$emit("addComment");
 			setTimeout(this.getStoreInfos, 100);
 		},
 		getStoreInfos() {
 			this.newComment = this.$store.state.commentInfos;
-			console.log("new comment", this.newComment);
+			//console.log("new comment", this.newComment);
 		},
 		format_date(date) {
 			if (date) {

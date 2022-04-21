@@ -67,11 +67,11 @@ const store = createStore({
 			instance.defaults.headers.common["Authorization"] = user.token;
 			localStorage.setItem("user", JSON.stringify(user));
 			state.user = user;
-			console.log("user", user);
+			//console.log("user", user);
 		},
 		userInfos: function (state, userInfos) {
 			state.userInfos = userInfos;
-			console.log("modify userInfos", userInfos);
+			//console.log("modify userInfos", userInfos);
 		},
 		commentInfos: function (state, comment) {
 			state.commentInfos = comment;
@@ -93,7 +93,7 @@ const store = createStore({
 
 			return new Promise((resolve, reject) => {
 				commit;
-				console.log(userInfos);
+				//console.log(userInfos);
 
 				instance
 					.post("/users", userInfos)
@@ -108,12 +108,12 @@ const store = createStore({
 			});
 		},
 		addPost: ({ commit }, postInfos) => {
-			console.log("store info :", postInfos);
+			//console.log("store info :", postInfos);
 			commit("postStatus", "loading");
 
 			return new Promise((resolve, reject) => {
 				commit;
-				console.log(postInfos);
+				//console.log(postInfos);
 
 				instance
 					.post("/post", postInfos)
@@ -134,7 +134,7 @@ const store = createStore({
 
 			return new Promise((resolve, reject) => {
 				commit;
-				console.log(commentInfos);
+				//console.log(commentInfos);
 
 				instance
 					.post("/comments", commentInfos)
@@ -152,15 +152,15 @@ const store = createStore({
 		},
 
 		login: ({ commit }, userInfos) => {
-			console.log("userInfos login", userInfos);
+			//console.log("userInfos login", userInfos);
 			commit("setStatus", "loading");
 			return new Promise((resolve, reject) => {
-				console.log(userInfos);
+				//console.log(userInfos);
 
 				instance
 					.get("/users")
 					.then(function (response) {
-						console.log("response login", response.data);
+						//console.log("response login", response.data);
 						if (
 							response.data.find(
 								(user) =>
@@ -190,7 +190,7 @@ const store = createStore({
 
 			return new Promise((resolve, reject) => {
 				commit;
-				console.log(userInfos);
+				//console.log(userInfos);
 
 				instance
 					.put(`/users/${userInfos.id}`, userInfos)
@@ -198,7 +198,7 @@ const store = createStore({
 						commit("setStatus", "modified");
 						commit("logUser", userInfos);
 						commit("userInfos", userInfos);
-						console.log("modify store: Action", userInfos);
+						//console.log("modify store: Action", userInfos);
 
 						resolve(response);
 					})
@@ -213,7 +213,7 @@ const store = createStore({
 
 			return new Promise((resolve, reject) => {
 				commit;
-				console.log(userInfos);
+				//console.log(userInfos);
 
 				instance
 					.delete(`/users/${userInfos.id}`)
@@ -235,7 +235,7 @@ const store = createStore({
 			instance
 				.get("/users")
 				.then(function (response) {
-					console.log(response.data);
+					//console.log(response.data);
 					commit("userInfos", response.data);
 				})
 				.catch(function () {});

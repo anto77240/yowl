@@ -34,7 +34,7 @@ export default {
 		};
 	},
 	mounted() {
-		console.log(this.$store.state.user.id);
+		//console.log(this.$store.state.user.id);
 		if (localStorage.getItem("user")) {
 			this.isLogged = !this.isLogged;
 			this.id = this.$store.state.user.userId;
@@ -51,7 +51,7 @@ export default {
 				},
 			})
 				.then((response) => response.json())
-				.then((response) => console.log(response));
+				.then((response) => response);
 			//console.log(toto);
 		},
 	},
