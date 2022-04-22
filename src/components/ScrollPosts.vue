@@ -187,7 +187,7 @@ export default {
 		},
 		closeModal() {
 			this.isModalVisible = false;
-			location.reload();
+			//location.reload();
 		},
 		async getCategories() {
 			let array = await fetch("http://146.59.157.162:3000/api/v1/category", {
