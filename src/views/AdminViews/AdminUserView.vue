@@ -126,7 +126,7 @@ export default {
 		closeModal() {
 			this.isVisible = false;
 			//console.log("1");
-			location.reload();
+			//location.reload();
 			this.fetchUsers();
 		},
 	},
